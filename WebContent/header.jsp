@@ -10,7 +10,7 @@
 <div class="sec_header">
 			<div class="header">
 				<div class="header-left">
-					<p class="logo">FLADAY</p>
+					<p class="logo" onclick="location.href='main.jsp'">FLADAY</p>
 					<div class="find">
 						<div>
 							<input type="text" class="find2" />
@@ -22,8 +22,8 @@
 					</div>
 				</div>
 				<div class="header-right">
-					<a href="#"><i class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
-					<a href="#"><i class="fa-regular fa-user"></i></a>
+					<a href="#" onclick="location.href='login.jsp'"><i class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
+					<a href="#" onclick="location.href='login.jsp'"><i class="fa-regular fa-user"></i></a>
 				</div>
 			</div>
 		</div>

@@ -96,6 +96,13 @@ div.join > input:nth-child(1) {
 	width: 76px;
 }
 
+.idInput {
+	margin-left: 6.4rem;
+}
+
+.mail {
+    margin-left: 12.7rem;
+}
 /* footer */
 .footer {
 	height: 30rem;

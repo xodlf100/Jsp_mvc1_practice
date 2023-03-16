@@ -1,7 +1,7 @@
 <%@page import="java.text.DecimalFormat"%>
-<%@page import="com.showM.Dto.Dto"%>
+<%@page import="showM.Dto.Dto"%>
 <%@page import="java.util.List"%>
-<%@page import="com.showM.Dao.Dao"%>
+<%@page import="showM.Dao.Dao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
@@ -9,7 +9,17 @@
 %>
 <!DOCTYPE html>
 <html lang="en">
-<%@include file="front_header.jsp"%>
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Document</title>
+<link rel="stylesheet" href="./css/reset.css" />
+<link rel="stylesheet" href="./css/common.css" />
+<link rel="stylesheet" href="./css/login.css" />
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+</head>
 <style>
 	.header {
 		background: #faf6f6f8;

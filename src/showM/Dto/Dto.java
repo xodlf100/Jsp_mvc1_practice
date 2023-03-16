@@ -1,4 +1,4 @@
-package com.showM.Dto;
+package showM.Dto;
 
 import java.text.DecimalFormat;
 

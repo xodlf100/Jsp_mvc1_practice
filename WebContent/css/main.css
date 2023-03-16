@@ -13,6 +13,7 @@
 
 .logo {
 	font-weight: 800;
+	cursor: pointer;
 }
 
 .find {
@@ -35,6 +36,10 @@
 	display: flex;
 	width: 10rem;
 	justify-content: space-around;
+}
+
+body > div > div.sec_banner > div > div > div {
+    cursor: -webkit-grab;
 }
 
 /* banner */
