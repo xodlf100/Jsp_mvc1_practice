@@ -5,9 +5,6 @@
 <%@page import="showM.Dao.Dao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
-
-
 <%
 	String id = request.getParameter("id");
 %>
@@ -136,7 +133,6 @@
 	<%
 		Dao dao = new Dao();
 		List<JoinDto> jo = dao.check();
-		System.out.print(jo);
 	%>
 	
 	function idCheck(){
@@ -151,6 +147,11 @@
 						
 					if(idValue == '<%=j.getId()%>'){
 						alert('아이디가 존재합니다.');
+						return
+					}
+					
+					if(idValue == "") {
+						alert("아이디를 입력해주세요.");
 						return
 					}
 			<%

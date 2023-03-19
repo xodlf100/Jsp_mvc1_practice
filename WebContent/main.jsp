@@ -7,6 +7,10 @@
 <%
 	Dao dao = new Dao();
 	List<Dto> dto = dao.select();
+	String id = (String)session.getAttribute("id");
+	if(id == null){
+		id = "guest";
+	}
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,7 +30,6 @@
 	<div class="wrap">
 		<%@include file="header.jsp"%>
 		<!-- header -->
-
 		<div class="sec_banner">
 			<div class="row">
 				<div class="banner">

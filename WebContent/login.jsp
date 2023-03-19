@@ -13,7 +13,7 @@
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Document</title>
+<title>로그인</title>
 <link rel="stylesheet" href="./css/reset.css" />
 <link rel="stylesheet" href="./css/common.css" />
 <link rel="stylesheet" href="./css/login.css" />
@@ -38,14 +38,14 @@
 						<div>MEMBER LOGIN</div>
 						<hr>
 					</div>
-					<form action="./main.jsp" method="post" class="login">
+					<form action="./loginAction.jsp" method="post" class="login">
 						<div>ID (User name)</div>
 						<div>
-							<input type="text" />
+							<input type="text" name="id"/>
 						</div>
 						<div class="pass">Password</div>
 						<div>
-							<input type="password" />
+							<input type="password" name="password"/>
 						</div>
 						<div class="join">
 							<input type="submit" value="로그인" class="btn btn-4" /> 
@@ -61,7 +61,6 @@
 		<!-- footer -->
 
 	</div>
-
 	<!-- wrap -->
 </body>
 </html>

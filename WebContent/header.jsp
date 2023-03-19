@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%
+	String idd = (String)session.getAttribute("id");
+%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -21,10 +24,25 @@
 						</div>
 					</div>
 				</div>
+				<% if(idd == null){
+				%>
 				<div class="header-right">
 					<a href="#" onclick="location.href='login.jsp'"><i class="fa-sharp fa-solid fa-right-to-bracket"></i></a>
 					<a href="#" onclick="location.href='login.jsp'"><i class="fa-regular fa-user"></i></a>
 				</div>
+				<%
+				}
+				%>
+				
+				<% if(idd != null){
+				%>
+				<div class="header-right">
+					<a href="#" onclick="location.href='logoutAction.jsp'"><i class="fa-solid fa-arrow-right"></i></a>
+					<a href="#" onclick="location.href='mypage.jsp'"><i class="fa-solid fa-user"></i></a>
+				</div>
+				<%
+				}
+				%>
 			</div>
 		</div>
 </body>
