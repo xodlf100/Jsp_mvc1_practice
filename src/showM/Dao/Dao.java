@@ -17,11 +17,11 @@ public class Dao {
 	ResultSet rs;
 	PreparedStatement pstmt;
 
-	String url = "jdbc:mariadb://183.111.199.155:3306/xodlf100";
+	String url = "jdbc:mariadb://localhost:3306/xodlf100";
 	String id = "xodlf100";
 	String pw = "roshadk12";
-
-	// �뵒鍮꾩뿰寃�
+	
+	//디비연결
 	public void getCon() {
 		try {
 			Class.forName("org.mariadb.jdbc.Driver");
@@ -90,6 +90,7 @@ public class Dao {
 				j.setEmail(rs.getString(4));
 				jo.add(j);
 			}
+			pstmt.close();
 			con.close();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -120,9 +121,48 @@ public class Dao {
 		return result;
 	}
 	
+	public JoinDto getMember(String id) {
+		getCon();
+		JoinDto dto = null; //객체 레퍼런스 생성
+		//왜 null인가? 정보가 생성되는 시점은 rs에 있을때이다.
+		//따라서 rs가 없을땐 굳이 만들필요가 없다.
+		try {
+			String sql = "select * from showm_join where id = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				dto = new JoinDto();
+				dto.setId(rs.getString(1));
+				dto.setPassword(rs.getString(2));
+				dto.setName(rs.getString(3));
+				dto.setEmail(rs.getString(4));
+			}
+			pstmt.close();
+			rs.close();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return dto;
+	}
+	
+	public void myUpdate(JoinDto dto) {
+		try {
+			getCon();
+			String sql = "update showm_join set password = ?, name = ?, email = ? where id = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, dto.getPassword());
+			pstmt.setString(2, dto.getName());
+			pstmt.setString(3, dto.getEmail());
+			pstmt.setString(4, dto.getId());
+			pstmt.executeUpdate(); // 정보를 전송만 하면 되므로 rs 그릇이 필요 없다.
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 	public static void main(String[] args) {
 		Dao dao = new Dao();
-		dao.getCon();
+//		dao.getCon();
 	}
 }

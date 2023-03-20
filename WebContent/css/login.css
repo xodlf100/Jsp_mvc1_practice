@@ -8,34 +8,59 @@
 	font-size: 4rem;
 	color: #111;
 	padding: 0 3rem 0 3rem;
-	padding-bottom: 1.5rem;
+	height: 7rem;
 }
 
 .logo {
+	font-size: 3rem;
 	font-weight: 800;
 	cursor: pointer;
+	width: 20%;
+    text-align: right;
 }
 
 .find {
+	width: 25%;
 	display: flex;
+	justify-content: left;
 }
 
 .find2 {
 	width: 40rem;
-	height: 2.5rem;
 	border-radius: 1rem;
-}
-
-.header-left {
-	display: flex;
-	justify-content: space-around;
-	width: 135rem;
+	margin-left: 2%;
 }
 
 .header-right {
+	font-size: 1.5rem;
+    font-weight: bold;
 	display: flex;
-	width: 10rem;
-	justify-content: space-around;
+	width: 20%;
+	justify-content: end;
+}
+
+.header-right > a:hover {
+	color: #f11414;
+}
+
+.header-rightt {
+	font-size: 3rem;
+    font-weight: bold;
+	display: flex;
+	width: 15%;
+	justify-content: end;
+}
+
+.logR {
+	margin-right: 1rem;
+
+}
+
+.logRR {
+	font-size: 1.2rem;
+	margin-right: 1rem;
+    color: #4168d7;	
+   	padding: 3px;
 }
 
 /* contents */

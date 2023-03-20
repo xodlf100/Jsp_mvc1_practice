@@ -30,7 +30,7 @@
 			session.setAttribute("id", id);
 			script.println("<script>");
 			script.println("alert('로그인 성공')");	
-			script.println("location.href='main.jsp'");
+			script.println("location.href='index.jsp'");
 			script.println("</script>");
 		}
 		if(result == 0){

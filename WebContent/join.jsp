@@ -57,17 +57,11 @@
 						</div>
 						<div>email</div>
 						<div>
-							<input type="text" name="email" class="mail"/>@
-							<select class="sel">
-								<option value="naver">naver.com</option>
-								<option value="hanmail">hanmail.com</option>
-								<option value="gmail">gmail</option>
-								<option value="직접입력">직접입력</option>
-							</select>
+							<input type="text" name="email" class="mail"/>
 						</div>
 						<div class="join">
 							<input type="submit" value="회원가입" class="btn btn-4" /> 
-							 <input type="button" value="뒤로가기"class="btn btn-4" onclick="location.href='login.jsp'">
+							 <input type="button" value="뒤로가기"class="btn btn-4" onclick="history.back()">
 						</div>
 					</form>
 				</div>

@@ -1,6 +1,13 @@
 @charset "UTF-8";
 
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
+
 /* common css */
+
+body {
+  font-family: 'Oswald', sans-serif;
+}
 .row {
   padding: 0 5px;
 }
@@ -22,3 +29,5 @@
   width: 100%;
   background: #faf6f6f8;
 }
+
+

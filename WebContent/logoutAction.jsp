@@ -18,7 +18,7 @@
 		session.invalidate();
 		script.println("<script>");
 		script.println("alert('로그아웃 완료')");
-		script.println("location.href='main.jsp'");
+		script.println("location.href='index.jsp'");
 		script.println("</script>");
 	%>
 </body>
