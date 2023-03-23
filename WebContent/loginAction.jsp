@@ -28,6 +28,7 @@
 		
 		if(result == 1){
 			session.setAttribute("id", id);
+			session.setMaxInactiveInterval(60*10);
 			script.println("<script>");
 			script.println("alert('로그인 성공')");	
 			script.println("location.href='index.jsp'");

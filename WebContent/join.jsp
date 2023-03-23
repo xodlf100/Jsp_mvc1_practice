@@ -75,14 +75,7 @@
 	</div>
 
 	<!-- wrap -->
-	
 	<script>
-
-	
-	
-	
-	
-	
 	var flag = false;
 	
 	var id = document.querySelector('.idInput');
@@ -122,8 +115,6 @@
 		return true;
 		
 	}
-	
-	
 	<%
 		Dao dao = new Dao();
 		List<JoinDto> jo = dao.check();
@@ -151,20 +142,9 @@
 			<%
 				}
 			%>
-			
-			
 			alert('회원가입이 가능합니다.');
 			flag = true
-			
-			
-		
-		
 	}
-
-	
-	
-
-
 </script>
 </body>
 </html>

@@ -6,12 +6,12 @@
 	pageEncoding="UTF-8"%>
 <%
 	Dao dao = new Dao();
-	List<Dto> dto = dao.select();
 	String id = (String)session.getAttribute("id");
 	if(id == null){
 		id = "guest";
 	}
-	
+	String se = request.getParameter("keyword");
+	List<Dto> dto = dao.search(se);
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +22,7 @@
 <title>Document</title>
 <link rel="stylesheet" href="./css/reset.css" />
 <link rel="stylesheet" href="./css/common.css" />
-<link rel="stylesheet" href="./css/main.css" />
+<link rel="stylesheet" href="./css/search.css" />
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 </head>
@@ -31,32 +31,11 @@
 	<div class="wrap">
 		<%@include file="header.jsp"%>
 		<!-- header -->
-		<div class="sec_banner">
-			<div class="row">
-				<div class="banner">
-					<div class="swiper mySwiper">
-						<div class="swiper-wrapper">
-							<%
-								for (int i = 1; i <= 9; i++) {
-							%>
-							<div class="swiper-slide">
-								<img src="./img/<%=i%>.jfif" alt="<%=i%>번" />
-							</div>
-							<%
-								}
-							%>
-						</div>
-						<div class="swiper-pagination"></div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- banner -->
+		
 
 		<div class="sec_contents">
 			<div class="inner row">
 				<div class="contents">
-					<h2 class="weekly">WEEKLY BEST</h2>
 					<ul class="content">
 						<%
 							for (int i = 0; i < dto.size(); i++) {

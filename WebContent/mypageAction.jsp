@@ -14,15 +14,15 @@
 	request.setCharacterEncoding("UTF-8");
 	PrintWriter script = response.getWriter();
 	Dao dao = new Dao();
-	dao.myUpdate(been);
 %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>마이페이지 수정</title>
 </head>
 <body>
 	<%
+		dao.myUpdate(been);
 		script.println("<script>");
 		script.println("alert('수정이 완료되었습니다.')");
 		script.println("location.href='mypage.jsp'");

@@ -8,6 +8,8 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.jasper.tagplugins.jstl.core.Out;
+
 import showM.Dto.Dto;
 import showM.Dto.JoinDto;
 
@@ -17,7 +19,7 @@ public class Dao {
 	ResultSet rs;
 	PreparedStatement pstmt;
 
-	String url = "jdbc:mariadb://localhost:3306/xodlf100";
+	String url = "jdbc:mariadb://183.111.199.155:3306/xodlf100";
 	String id = "xodlf100";
 	String pw = "roshadk12";
 	
@@ -31,6 +33,7 @@ public class Dao {
 		}
 	}
 
+	// 전체 데이터 가져오기
 	public List<Dto> select() {
 		List<Dto> dto = new ArrayList<>();
 		getCon();
@@ -58,6 +61,7 @@ public class Dao {
 		return dto;
 	}
 
+	// 회원 가입
 	public void join(JoinDto joinDto) {
 		try {
 			getCon();
@@ -75,10 +79,11 @@ public class Dao {
 		}
 	}
 
+	// 전체 데이터 가져오기
 	public List<JoinDto> check() {
 		List<JoinDto> jo = new ArrayList<>();
+		getCon();
 		try {
-			getCon();
 			String sql = "select * from showm_join";
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
@@ -98,6 +103,7 @@ public class Dao {
 		return jo;
 	}
 	
+	// 로그인
 	public int login(String id, String password) {
 		int result = 0;
 		getCon(); //드라이버연결
@@ -111,9 +117,9 @@ public class Dao {
 			//여러개 -while //한개 - if
 			if(rs.next()) {
 				result = rs.getInt(1);
+			}
 			con.close();
 			pstmt.close();
-			}
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -121,6 +127,7 @@ public class Dao {
 		return result;
 	}
 	
+	//id를 통해 전체 값 불러오기
 	public JoinDto getMember(String id) {
 		getCon();
 		JoinDto dto = null; //객체 레퍼런스 생성
@@ -146,6 +153,7 @@ public class Dao {
 		return dto;
 	}
 	
+	// 정보 업데이트
 	public void myUpdate(JoinDto dto) {
 		try {
 			getCon();
@@ -160,9 +168,94 @@ public class Dao {
 			e.printStackTrace();
 		}
 	}
+	
+	// 회원 탈퇴 Delete
+	public void Withdrawal(String id) {
+		try {
+			getCon();
+			String sql = "delete from showm_join where id = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
 
+	//제품 상세페이지에 5개씩 랜덤 뿌리기
+	public List<Dto> LimitSel(){
+		List<Dto> dto = new ArrayList<>();
+		try {
+			getCon();
+			String sql = "SELECT * FROM showm ORDER BY RAND() LIMIT 5";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				Dto dtoo = new Dto();
+				dtoo.setIdx(rs.getInt(1));
+				dtoo.setPicture(rs.getString(2));
+				dtoo.setTitle(rs.getString(3));
+				dtoo.setContents(rs.getString(4));
+				dtoo.setPrice(rs.getInt(5));
+				dto.add(dtoo);
+			}
+			con.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return dto;
+	}
+	
+	// 제품 가져오기
+	public Dto getProduct(String idx) {
+		Dto dto = new Dto();
+		try {
+			getCon();
+			String sql = "select * from showm where idx = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, idx);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				dto.setIdx(rs.getInt(1));
+				dto.setPicture(rs.getString(2));
+				dto.setTitle(rs.getString(3));
+				dto.setContents(rs.getString(4));
+				dto.setPrice(rs.getInt(5));
+			}
+			con.close();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return dto;
+	}
+	
+	public List<Dto> search(String keyword){
+		List<Dto> dto = new ArrayList<>();
+		try {
+			getCon();
+			String sql = "select * from showm WHERE title like ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, "%"+keyword+"%");
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				Dto dtoo = new Dto();
+				dtoo.setIdx(rs.getInt(1));
+				dtoo.setPicture(rs.getString(2));
+				dtoo.setTitle(rs.getString(3));
+				dtoo.setContents(rs.getString(4));
+				dtoo.setPrice(rs.getInt(5));
+				dto.add(dtoo);
+			}
+			con.close();
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return dto;
+	}
+	
 	public static void main(String[] args) {
 		Dao dao = new Dao();
-//		dao.getCon();
+		dao.getCon();
 	}
 }

@@ -8,15 +8,38 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style>
+	.hform{
+		display: flex;
+	}
+	
+	.find2 {
+		padding-left: 0.5rem;
+	}
+	
+	.hbutton {
+		background: none;
+		border-style: none;
+	}
+	
+	.hbutton > i {
+		font-size: 3rem;
+		margin-left: 2rem;
+		cursor: pointer;
+	}
+</style>
 </head>
 <body>
 	<div class="sec_header">
 		<div class="header">
 			<h1 class="logo" onclick="location.href='index.jsp'">FLADAY</h1>
 			<div class="find">
-				<input type="text" class="find2" /> <i
-					class="fa-solid fa-magnifying-glass"
-					style="font-size: 3rem; margin-left: 2rem"></i>
+				<form action="search.jsp" method="get" class="hform">
+					<input type="text" class="find2" placeholder="검색어 입력" name="keyword"/>
+					 <button type="submit" class="hbutton">
+					 <i class="fa-solid fa-magnifying-glass"></i>
+					 </button>
+				 </form>
 			</div>
 			<%
 				if (idd == null) {

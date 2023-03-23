@@ -63,7 +63,7 @@
 						</div>
 						<div class="join">
 							<input type="submit" value="수정하기" class="btn btn-4" /> 
-							 <input type="button" value="회원탈퇴"class="btn btn-4" onclick="location.href='Withdrawal.jsp'">
+							 <input type="button" value="회원탈퇴"class="btn btn-4" onclick="check()">
 						</div>
 					</form>
 					<h2 class="ps">* 아이디는 변경할 수 없습니다.</h2>
@@ -78,5 +78,13 @@
 	</div>
 	<!-- wrap -->
 
+<script>
+	function check(){
+		if(confirm("정말 탈퇴하시겠습니까?")){
+			location.href="WithdrawalAction.jsp";
+		} else {
+		}
+	}
+</script>
 </body>
 </html>
